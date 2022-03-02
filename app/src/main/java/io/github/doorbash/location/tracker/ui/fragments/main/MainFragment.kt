@@ -4,14 +4,14 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ListView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import io.github.doorbash.location.tracker.DEVICE_ID
 import io.github.doorbash.location.tracker.R
 import io.github.doorbash.location.tracker.model.LatLng
 import io.github.doorbash.location.tracker.ui.adapters.LatLngAdapter
@@ -74,6 +74,7 @@ class MainFragment : Fragment() {
         }
 
         v.post {
+            // (activity as AppCompatActivity).supportActionBar!!.title = "Location Tracker ($DEVICE_ID)"
             swipeRefreshLayout.isRefreshing = true
             viewModel.refresh()
         }

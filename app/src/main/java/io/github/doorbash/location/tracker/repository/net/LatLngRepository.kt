@@ -16,7 +16,7 @@ object LatLngRepository {
     // todo: add basic auth
     public suspend fun getList(deviceId: String): List<LatLng> {
         val request: Request = Request.Builder()
-            .url("$BASE_URL/gps-tracker/list?did=$deviceId")
+            .url("$BASE_URL/list?did=$deviceId")
             .build()
         val response = client.newCall(request).await()
         val body = response.body!!.string()
